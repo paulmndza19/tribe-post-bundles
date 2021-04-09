@@ -19,8 +19,6 @@ module Video
     bundle_keys.each do |bundle_key|
       next if bundle_key > video_left
 
-      remainder = video_left%bundle_key
-
       addends = bundle_keys - [bundle_key]
       sum_of_any_two_bundle_option = addends.sum
       sum_of_bundle_keys = bundle_keys.sum
@@ -30,6 +28,8 @@ module Video
       elsif (video_left % sum_of_bundle_keys).zero?
         return build_breakdown(bundle_keys, no_of_video, sum_of_bundle_keys)
       else
+        remainder = video_left%bundle_key
+
         if bundle_keys.include?(remainder) || remainder < MINIMUM
           number_of_bundles_in_quantity = video_left/bundle_key
           price = number_of_bundles_in_quantity * BUNDLE_PRICES[bundle_key]
