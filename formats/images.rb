@@ -39,7 +39,7 @@ module Images
 
   def self.valid?(no_of_images)
     if no_of_images < MINIMUM
-      STDERR.puts "Insufficient number of images"
+      raise "Insufficient number of images"
     end
   end
 
