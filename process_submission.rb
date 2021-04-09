@@ -3,11 +3,6 @@
 
 require_relative 'submission'
 
-submission_formats = []
-
-msg = "Enter your submissions"
-puts msg
-
 def valid_format?(input)
   return false if input == ''
 
@@ -19,11 +14,28 @@ def valid_format?(input)
   end
 end
 
-input = ' '
-while input != ''
-  input = gets.chomp
-  submission_formats << input if valid_format?(input)
+def print_tally(submission_formats)
+  submission = Submission.new(submission_formats)
+  puts submission.process_tally
 end
 
-submission = Submission.new(submission_formats)
-puts submission.process_tally
+def get_submissions
+  submission_formats = []
+
+  input = ' '
+  while input != ''
+    input = gets.chomp
+    submission_formats << input if valid_format?(input)
+  end
+
+  submission_formats
+end
+
+if $0 == __FILE__
+  msg = "Enter your submissions. Press Enter on a blank line when you're done"
+  puts msg
+
+  submission_formats = get_submissions
+  print_tally(submission_formats)
+end
+
