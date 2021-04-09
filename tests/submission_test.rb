@@ -3,7 +3,7 @@ require_relative '../submission'
 
 describe Submission do
   before do
-    @submission_formats = ['10 IMG', '15 Flac', '13 VID']
+    @submission_formats = ['10 IMG', '15 FLAC', '13 VID']
     @submission = Submission.new(@submission_formats)
   end
 

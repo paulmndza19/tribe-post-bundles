@@ -18,7 +18,7 @@ class Submission
         images = format.split(' ')
         no_of_images = images.first.to_i
         images_tally = Images.compute(no_of_images)
-      elsif format.include? 'Flac'
+      elsif format.include? 'FLAC'
         audio = format.split(' ')
         no_of_audio = audio.first.to_i
         audio_tally = Audio.compute(no_of_audio)
