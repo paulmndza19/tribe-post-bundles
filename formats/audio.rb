@@ -19,14 +19,7 @@ module Audio
     bundle_keys.each do |bundle_key|
       next if bundle_key > audio_left
 
-      remainder = audio_left % bundle_key
-
-      # check if remainder can still be bundled or if the remainder is the sum of any 2 available bundles
-      can_still_be_bundled = bundle_keys.include?(remainder) || (bundle_keys - [bundle_key]).sum == remainder
-      # also check if there is no remaining FLAC
-      no_available_audio = remainder == 0
-
-      if can_still_be_bundled || no_available_audio
+      if audio_left >= MINIMUM
         number_of_bundles_in_quantity = audio_left/bundle_key
 
         price = number_of_bundles_in_quantity * BUNDLE_PRICES[bundle_key]
@@ -35,7 +28,7 @@ module Audio
 
         price_breakdown << "#{number_of_bundles_in_quantity} x #{bundle_key} $#{BUNDLE_PRICES[bundle_key]}"
 
-        audio_left = remainder
+        audio_left%=bundle_key
       end
     end
 
