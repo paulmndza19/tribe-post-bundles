@@ -11,5 +11,7 @@ describe Video do
     assert_equal '13 VID $2370.0', @video_tally[:total]
     assert_equal '2 x 5 $900.0', @video_tally[:breakdown][0]
     assert_equal '1 x 3 $570.0', @video_tally[:breakdown][1]
+
+    assert_equal 2, @video_tally.length
   end
 end

@@ -11,5 +11,7 @@ describe Audio do
     assert_equal '15 FLAC $1957.5', @audio_tally[:total]
     assert_equal '1 x 9 $1147.5', @audio_tally[:breakdown][0]
     assert_equal '1 x 6 $810.0', @audio_tally[:breakdown][1]
+
+    assert_equal 2, @audio_tally.length
   end
 end
