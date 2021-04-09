@@ -39,7 +39,7 @@ module Audio
 
   def self.valid?(no_of_audio)
     if no_of_audio < MINIMUM
-      STDERR.puts "Insufficient audio quantity"
+      raise "Insufficient audio quantity"
     end
   end
 
