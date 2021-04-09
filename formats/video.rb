@@ -27,19 +27,17 @@ module Video
 
       if (video_left % sum_of_any_two_bundle_option).zero?
         return build_breakdown(addends, no_of_video, sum_of_any_two_bundle_option)
-        break
-      end
-
-      if (video_left % sum_of_bundle_keys).zero?
+      elsif (video_left % sum_of_bundle_keys).zero?
         return build_breakdown(bundle_keys, no_of_video, sum_of_bundle_keys)
-        break
+      else
+        if bundle_keys.include?(remainder) || remainder < MINIMUM
+          number_of_bundles_in_quantity = video_left/bundle_key
+          price = number_of_bundles_in_quantity * BUNDLE_PRICES[bundle_key]
+          total+=price
+          price_breakdown << "#{number_of_bundles_in_quantity} x #{bundle_key} $#{BUNDLE_PRICES[bundle_key]}"
+          video_left = remainder
+        end
       end
-
-      number_of_bundles_in_quantity = video_left/bundle_key
-      price = number_of_bundles_in_quantity * BUNDLE_PRICES[bundle_key]
-      total+=price
-      price_breakdown << "#{number_of_bundles_in_quantity} x #{bundle_key} $#{BUNDLE_PRICES[bundle_key]}"
-      video_left = remainder
     end
 
     breakdown(no_of_video, total, price_breakdown)
@@ -79,3 +77,12 @@ module Video
     (digits.sum % 3).zero? || (number % 5).zero?
   end
 end
+
+
+
+# check if remainder can still be bundled or if the remainder is the sum of any 2 available bundles
+# can_still_be_bundled = bundle_keys.include?(remainder) || (bundle_keys - [bundle_key]).sum == remainder
+# # also check if there is no remaining IMG
+# no_available_images = remainder == 0
+
+# if can_still_be_bundled || no_available_images
