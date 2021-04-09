@@ -61,7 +61,7 @@ module Video
 
   def self.valid?(no_of_video)
     if no_of_video < MINIMUM
-      STDERR.puts "Insufficient video quantity"
+      raise "Insufficient video quantity"
     end
   end
 
