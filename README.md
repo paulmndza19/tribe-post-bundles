@@ -8,4 +8,4 @@
 
 ### How to run tests
 1. First, lets install minitest by running `gem install minitest`.
-2. Tests are contained in the `tests` folder. Run tests using `ruby <DIRECTORY-OF-TEST_FILE>`. For example, `ruby tests/submission_test.rb`.
+2. Tests are contained in the `tests` folder. Run tests using `ruby <DIRECTORY-OF-TEST-FILE>`. For example, `ruby tests/submission_test.rb`.
