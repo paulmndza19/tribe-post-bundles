@@ -13,7 +13,7 @@ describe Audio do
     assert_equal 2, audio_tally.length
   end
 
-  it 'raises an error when no_of_audio is less than minimum' do
+  it 'raises an error when no_of_audio is less than Audio::MINIMUM' do
     no_of_audio = 2
 
     error = assert_raises(RuntimeError) { Audio.compute(no_of_audio) }

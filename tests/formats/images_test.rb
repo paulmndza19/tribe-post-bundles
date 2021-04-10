@@ -12,7 +12,7 @@ describe Images do
     assert_equal 1, image_tally[:breakdown].length
   end
 
-  it 'raises an error when no_of_images is less than minimum' do
+  it 'raises an error when no_of_images is less than Images::MINIMUM' do
     no_of_images = 2
 
     error = assert_raises(RuntimeError) { Images.compute(no_of_images) }

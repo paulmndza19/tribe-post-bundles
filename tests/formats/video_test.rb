@@ -13,7 +13,7 @@ describe Video do
     assert_equal 2, video_tally.length
   end
 
-  it 'raises an error when no_of_video is less than minimum' do
+  it 'raises an error when no_of_video is less than Video::MINIMUM' do
     no_of_video = 2
 
     error = assert_raises(RuntimeError) { Video.compute(no_of_video) }
