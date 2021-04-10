@@ -45,6 +45,12 @@ module Video
 
   private
 
+  def self.valid?(no_of_video)
+    if no_of_video < MINIMUM
+      raise "Insufficient video quantity"
+    end
+  end
+
   def self.build_breakdown(addends, no_of_video, divisor)
     total = 0
     price_breakdown = []
@@ -59,11 +65,6 @@ module Video
     breakdown(no_of_video, total, price_breakdown)
   end
 
-  def self.valid?(no_of_video)
-    if no_of_video < MINIMUM
-      raise "Insufficient video quantity"
-    end
-  end
 
   def self.breakdown(no_of_video, total, price_breakdown)
     {
@@ -71,18 +72,4 @@ module Video
       breakdown: price_breakdown
     }
   end
-
-  def self.divisible_by_3_or_5(number)
-    digits = number.to_s.chars.map(&:to_i)
-    (digits.sum % 3).zero? || (number % 5).zero?
-  end
 end
-
-
-
-# check if remainder can still be bundled or if the remainder is the sum of any 2 available bundles
-# can_still_be_bundled = bundle_keys.include?(remainder) || (bundle_keys - [bundle_key]).sum == remainder
-# # also check if there is no remaining IMG
-# no_available_images = remainder == 0
-
-# if can_still_be_bundled || no_available_images
