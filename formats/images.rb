@@ -5,7 +5,6 @@ module Images
   }
 
   MINIMUM = 5
-  MAXIMUM = 10
 
   def self.compute(no_of_images)
     valid?(no_of_images)
