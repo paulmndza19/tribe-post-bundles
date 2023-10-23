@@ -25,7 +25,7 @@ module Images
 
         total+=price
 
-        price_breakdown << "#{number_of_bundles_in_quantity} x #{bundle_key} $#{BUNDLE_PRICES[bundle_key]}"
+        price_breakdown << "#{number_of_bundles_in_quantity} x #{bundle_key} $#{price}"
 
         images_left%=bundle_key
       end
