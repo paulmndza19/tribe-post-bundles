@@ -16,7 +16,7 @@ describe Submission do
     assert tally.include? '1 x 9 $1147.5'
     assert tally.include? '1 x 6 $810.0'
     assert tally.include? '13 VID $2370.0'
-    assert tally.include? '2 x 5 $900.0'
+    assert tally.include? '2 x 5 $1800.0'
     assert tally.include? '1 x 3 $570.0'
   end
 end
