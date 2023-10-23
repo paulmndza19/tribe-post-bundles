@@ -34,7 +34,7 @@ module Video
           number_of_bundles_in_quantity = video_left/bundle_key
           price = number_of_bundles_in_quantity * BUNDLE_PRICES[bundle_key]
           total+=price
-          price_breakdown << "#{number_of_bundles_in_quantity} x #{bundle_key} $#{BUNDLE_PRICES[bundle_key]}"
+          price_breakdown << "#{number_of_bundles_in_quantity} x #{bundle_key} $#{price}"
           video_left = remainder
         end
       end
